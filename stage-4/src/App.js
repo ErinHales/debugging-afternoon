@@ -8,6 +8,31 @@ import { Route, Switch } from 'react-router-dom';
 
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      shoppingCart: []
+    }
+
+    this.addToShoppingCart = this.addToShoppingCart.bind(this);
+    this.removeFromShoppingCart = this.removeFromShoppingCart.bind(this);
+  }
+
+  addToShoppingCart(product) {
+    this.setState({
+      shoppingCart: [...this.state.shoppingCart, product]
+    })
+
+  }
+
+  removeFromShoppingCart(product) {
+    let newShoppingCart = this.state.shoppingCart;
+    newShoppingCart.splice(newShoppingCart.indexOf(product), 1);
+    this.setState({
+      shoppingCart: newShoppingCart
+    })
+  }
   render() {
     return (
       <div className="App">

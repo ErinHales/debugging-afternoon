@@ -4,9 +4,23 @@ import { removeFromShoppingCart } from '../../redux/reducer';
 import { connect } from 'react-redux';
 
 class ShoppingCart extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            shoppingCart: this.props.shoppingCart
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            shoppingCart: nextProps.shoppingCart
+        })
+    }
 
     render() {
-        let shoppingCartDisplay = this.props.shoppingCart.map((element, index) => {
+        let shoppingCartDisplay = this.state.shoppingCart.map((element, index) => {
+            console.log(element)
             return (
                 <div className="shopping-cart-product-container" key={index}>
                     <img src={element.image} alt="" />
@@ -31,7 +45,6 @@ class ShoppingCart extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
         shoppingCart: state.shoppingCart
     };

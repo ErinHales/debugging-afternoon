@@ -23,7 +23,7 @@ class App extends Component {
     this.setState({
       shoppingCart: [...this.state.shoppingCart, product]
     })
-    console.log(this.state.shoppingCart);
+
   }
 
   removeFromShoppingCart(product) {
@@ -32,7 +32,6 @@ class App extends Component {
     this.setState({
       shoppingCart: newShoppingCart
     })
-    console.log(this.state.shoppingCart);
   }
 
   render() {

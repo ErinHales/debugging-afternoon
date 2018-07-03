@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const getAllProducts = function() {
+function getAllProducts() {
     return axios.get("https://practiceapi.devmountain.com/products/")
     .then(response => response.data);
 }
+
+export default getAllProducts;
